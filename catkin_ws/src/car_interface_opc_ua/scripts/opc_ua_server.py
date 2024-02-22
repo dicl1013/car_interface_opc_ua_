@@ -8,9 +8,6 @@ Date: winter semester 2023/24
 This script creates an OPC UA server and connects ROS-Topics with OPC UA nodes. So it is possible to read data from the ROS-network from outside.
 The OPC UA Server modul is in config/opcua_model.xml and the mapping of the ROS-topics to the nodes is done in config/mapping_rostopic_opcua.xml
 
-
-TODO: Nur noch Dateipfad für eigenes asyncua ist komisch
-
 """
 
 """-------------------------------------------------------------------------"""
