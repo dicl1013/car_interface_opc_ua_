@@ -1,0 +1,8 @@
+prefix=/home/clemens/catkin_ws/devel
+
+Name: car_interface_opc_ua
+Description: Description of car_interface_opc_ua
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

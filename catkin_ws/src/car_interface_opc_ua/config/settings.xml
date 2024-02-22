@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Don't change anything, if you are not sure, what you are doing!-->
+<Settings>
+    <SignIn>
+        <TimeSignInValidInMinutes>100</TimeSignInValidInMinutes>  
+        <LengthUsername>4</LengthUsername>
+        <LengthUsername>4</LengthUsername>
+    </SignIn>
+</Settings>

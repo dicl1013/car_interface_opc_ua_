@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+  <NamespaceUris>
+    <Uri>http://h-ka.de/ieem/car_interface_opc_ua</Uri>
+  </NamespaceUris>
+  <Aliases>
+    <Alias Alias="Int64">i=8</Alias>
+    <Alias Alias="String">i=12</Alias>
+    <Alias Alias="Organizes">i=35</Alias>
+    <Alias Alias="HasTypeDefinition">i=40</Alias>
+    <Alias Alias="HasComponent">i=47</Alias>
+  </Aliases>
+  <UAObject NodeId="ns=2;i=1" BrowseName="2:Car" ParentNodeId="i=85">
+    <DisplayName>Car</DisplayName>
+    <Description>Car</Description>
+    <References>
+      <Reference ReferenceType="Organizes" IsForward="false">i=85</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasComponent">ns=2;i=2</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=2;i=2" BrowseName="2:Sensors" ParentNodeId="ns=2;i=1">
+    <DisplayName>Sensors</DisplayName>
+    <Description>Sensors</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=2;i=1</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasComponent">ns=2;i=3</Reference>
+      <Reference ReferenceType="HasComponent">ns=2;i=6</Reference>
+      <Reference ReferenceType="HasComponent">ns=2;i=9</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=2;i=3" BrowseName="2:Lidar" ParentNodeId="ns=2;i=2">
+    <DisplayName>Lidar</DisplayName>
+    <Description>Lidar</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=2;i=2</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasComponent">ns=2;i=4</Reference>
+      <Reference ReferenceType="HasComponent">ns=2;i=5</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=2;i=4" BrowseName="2:Target_1" ParentNodeId="ns=2;i=3" DataType="String">
+    <DisplayName>Target_1</DisplayName>
+    <Description>Target_1</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=2;i=3</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=5" BrowseName="2:Target_2" ParentNodeId="ns=2;i=3" DataType="String">
+    <DisplayName>Target_2</DisplayName>
+    <Description>Target_2</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=2;i=3</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=2;i=6" BrowseName="2:Camera01" ParentNodeId="ns=2;i=2">
+    <DisplayName>Camera01</DisplayName>
+    <Description>Camera01</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=2;i=2</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasComponent">ns=2;i=7</Reference>
+      <Reference ReferenceType="HasComponent">ns=2;i=8</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=2;i=7" BrowseName="2:DetectedCirclesFlag" ParentNodeId="ns=2;i=6" DataType="Int64">
+    <DisplayName>DetectedCirclesFlag</DisplayName>
+    <Description>DetectedCirclesFlag</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=2;i=6</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=8" BrowseName="2:Distance" ParentNodeId="ns=2;i=6" DataType="Int64">
+    <DisplayName>Distance</DisplayName>
+    <Description>Distance</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=2;i=6</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+  </UAVariable>
+  <UAObject NodeId="ns=2;i=9" BrowseName="2:Camera02" ParentNodeId="ns=2;i=2">
+    <DisplayName>Camera02</DisplayName>
+    <Description>Camera02</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=2;i=2</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+      <Reference ReferenceType="HasComponent">ns=2;i=10</Reference>
+      <Reference ReferenceType="HasComponent">ns=2;i=11</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=2;i=10" BrowseName="2:DetectedCirclesFlag" ParentNodeId="ns=2;i=9" DataType="Int64">
+    <DisplayName>DetectedCirclesFlag</DisplayName>
+    <Description>DetectedCirclesFlag</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=2;i=9</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+  </UAVariable>
+  <UAVariable NodeId="ns=2;i=11" BrowseName="2:Distance" ParentNodeId="ns=2;i=9" DataType="Int64">
+    <DisplayName>Distance</DisplayName>
+    <Description>Distance</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=2;i=9</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+    </References>
+  </UAVariable>
+</UANodeSet>

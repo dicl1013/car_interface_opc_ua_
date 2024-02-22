@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MappRosTopic>
+    <!--image_bridge_opencv_F_C_100/detected_circles_flag Int8 -->
+    <!--image_bridge_opencv_F_C_100/distance Int16 -->
+
+    <!--image_bridge_opencv_F_L_30/detected_circles_flag Int8 -->
+    <!--image_bridge_opencv_F_L_30/distance Int16 -->
+
+    <!--image_bridge_opencv_F_R_60/detected_circles_flag Int8 -->
+    <!--image_bridge_opencv_F_R_60/distance Int16 -->
+
+    <!--/image_bridge_opencv_01/detected_circles_flag Int8 -->
+    <!--/image_bridge_opencv_01/distance Int16 -->
+
+    <!--/image_bridge_opencv_02/detected_circles_flag Int8 -->
+    <!--/image_bridge_opencv_02/distance Int16 -->
+
+    <!--Target_1 String -->
+    <!--Target_2 String -->
+
+    <!--ROSUAObject NodeId="ns=2;i=6001" RosTopic="chatter"/>
+    <ROSUAObject NodeId="ns=2;i=6002" RosTopic="chatter2"/>
+    <ROSUAObject NodeId="ns=2;i=6010" RosTopic="chatter_string"/!-->
+    <!--ROSUAObject NodeId="ns=2;i=4" RosTopic="chatter"/>
+    <ROSUAObject NodeId="ns=2;i=7" RosTopic="chatter2"/!-->
+    <!--ROSUAObject NodeId="ns=2;i=5" RosTopic="chatter_string"/!-->
+    <ROSUAObject NodeId="ns=2;i=7" RosTopic="/image_bridge_opencv_01/detected_circles"/>
+    <ROSUAObject NodeId="ns=2;i=8" RosTopic="/image_bridge_opencv_01/distance"/>
+    <ROSUAObject NodeId="ns=2;i=10" RosTopic="/image_bridge_opencv_02/detected_circles"/>
+    <ROSUAObject NodeId="ns=2;i=11" RosTopic="/image_bridge_opencv_02/distance"/>
+    <ROSUAObject NodeId="ns=2;i=4" RosTopic="Target_1"/>
+    <ROSUAObject NodeId="ns=2;i=5" RosTopic="Target_2"/>
+</MappRosTopic>

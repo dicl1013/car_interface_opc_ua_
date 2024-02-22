@@ -1,0 +1,111 @@
+#!/usr/bin/env python3
+# Software License Agreement (BSD License)
+#
+# Copyright (c) 2008, Willow Garage, Inc.
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+#  * Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#  * Redistributions in binary form must reproduce the above
+#    copyright notice, this list of conditions and the following
+#    disclaimer in the documentation and/or other materials provided
+#    with the distribution.
+#  * Neither the name of Willow Garage, Inc. nor the names of its
+#    contributors may be used to endorse or promote products derived
+#    from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+# FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+# COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+# INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+# BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+# LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+# ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+#
+# Revision $Id$
+
+## Simple talker demo that published std_msgs/Strings messages
+## to the 'chatter' topic
+
+import rospy
+import sensor_msgs.msg
+import std_msgs.msg
+from std_msgs.msg import String
+from std_msgs.msg import Float64
+from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import MultiArrayDimension
+
+
+def talker():
+    #pub = rospy.Publisher('chatter', String, queue_size=10)
+    pub1 = rospy.Publisher('chatter', Float64, queue_size=10)
+    #pub1 = rospy.Publisher('chatter', String, queue_size=10)
+    pub2 = rospy.Publisher('chatter2', Float64, queue_size=10)
+    pub3 = rospy.Publisher('chatter_string', String, queue_size=10)
+    pub4 = rospy.Publisher('Target_1', String, queue_size=10)
+    pub_image = rospy.Publisher('Test_Image', sensor_msgs.msg.Image, queue_size=10)
+
+    rospy.init_node('talker', anonymous=True)
+    rate = rospy.Rate(1) # 1hz
+
+    var1 = 0.0
+    var2 = 0.0
+
+    p1 = [1.0, 4.0, 8.0]
+    p2 = [21.0, 24.0, 28.0]
+    p3 = [31.0, 34.0, 38.0]
+    ArrayVar = [*p1, *p2, *p3] 
+    n=3
+    MyMsg = Float64MultiArray()
+    MyMsg.data = ArrayVar
+    MyMsg.layout.data_offset =  0 # no padding
+    dim = []
+    dim.append(MultiArrayDimension("points", n, 3*n))
+    dim.append(MultiArrayDimension("coords", 3, 1))
+    MyMsg.layout.dim = dim
+
+    MyMsgImage = sensor_msgs.msg.Image()
+    #image = open('/home/clemens/catkin_ws/Test.png','r')
+    #MyMsgImage.data = image
+    #MyMsgImage
+
+    while not rospy.is_shutdown():
+        rospy.loginfo(f"var1={var1}, var2={var2}")
+        pub1.publish(var1)
+        pub2.publish(var2)
+        pub3.publish(f"var1={var1}, var2={var2}")
+
+
+        #pub4.publish(f"3/4/5")
+        pub4.publish(f"NOT FOUND")
+
+        #pub4.publish(MyMsg)
+        #rospy.loginfo('SEND DATA: \n%s', MyMsg)
+
+        pub_image.publish(MyMsgImage)
+
+        var1 += 0.4
+        var2 += 0.6
+
+        rate.sleep()
+        """
+        hello_str = "hello world %s" % rospy.get_time()
+        rospy.loginfo(hello_str)
+        pub.publish(hello_str)
+        rate.sleep()
+        """
+
+if __name__ == '__main__':
+    try:
+        talker()
+    except rospy.ROSInterruptException:
+        pass
